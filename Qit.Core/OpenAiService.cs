@@ -11,7 +11,7 @@ namespace Qit.Core
 
             IEnumerable<CategoryAttributes> result = await openAiClient.SendAsync(apiKey, flattenCategories);
 
-            throw new NotImplementedException();
+            return result;
         }
     }
 }

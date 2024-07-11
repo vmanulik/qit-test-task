@@ -27,8 +27,7 @@ namespace Qit.Api.Controllers
 
                 IEnumerable<CategoryAttributes> result = await openAiService.SendRequest(categoryAttributes);
 
-                return Ok(mapper.Map<CategoryAttributesDto>(result));
-
+                return Ok(mapper.Map<IEnumerable<CategoryAttributesDto>>(result));
             }
             catch (Exception e)
             {
