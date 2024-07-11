@@ -4,6 +4,6 @@ namespace Qit.Core.Abstractions
 {
     public interface IOpenAiClient
     {
-        Task<IEnumerable<CategoryAttributes>> SendAsync(string apiKey, IEnumerable<Category> category);
+        Task<IEnumerable<CategoryAttributes>> SendAsync(string apiKey, IEnumerable<SubCategory> category);
     }
 }

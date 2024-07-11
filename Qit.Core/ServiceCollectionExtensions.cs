@@ -7,9 +7,8 @@ namespace Qit.Core
     {
         public static void AddOpenAiServices(this IServiceCollection services, string apiKey)
         {
-            services.AddScoped<IOpenAiService, OpenAiService>(serviceProvider => new OpenAiService(apiKey));
-
-            //services.AddTransient(serviceProvider => new TokenService(serviceProvider.GetRequiredService<UserManager<IdentityUser>>(), serviceProvider.GetRequiredService<ApplicationDbContext>(), "hello"));
+            services.AddScoped<IOpenAiClient, OpenAiClient>();
+            services.AddScoped<IOpenAiService, OpenAiService>(serviceProvider => new OpenAiService(apiKey, serviceProvider.GetRequiredService<IOpenAiClient>()));
         }
     }
 }

@@ -7,7 +7,7 @@ namespace Qit.Core
 {
     public class OpenAiClient : IOpenAiClient
     {
-        public async Task<IEnumerable<CategoryAttributes>> SendAsync(string apiKey, IEnumerable<Category> category)
+        public async Task<IEnumerable<CategoryAttributes>> SendAsync(string apiKey, IEnumerable<SubCategory> category)
         {
             var api = new OpenAIAPI(apiKey);
 
