@@ -14,7 +14,7 @@ namespace Qit.Api.Controllers
                                   IMapper mapper) : ControllerBase
     {
         [HttpPost("popular-attributes")]
-        public async Task<ActionResult<CategoryAttributesResponse>> Get(CategoryAttributesRequest request)
+        public async Task<ActionResult<IEnumerable<CategoryAttributesDto>>> Get(IEnumerable<Category> request)
         {
             if (request == null)
             {
@@ -23,11 +23,11 @@ namespace Qit.Api.Controllers
 
             try
             {
-                var categoryAttributes = request.Categories.Adapt<IEnumerable<Category>>();
+                var categoryAttributes = request.Adapt<IEnumerable<Category>>();
 
                 IEnumerable<CategoryAttributes> result = await openAiService.SendRequest(categoryAttributes);
 
-                return Ok(mapper.Map<CategoryAttributesResponse>(result));
+                return Ok(mapper.Map<CategoryAttributesDto>(result));
 
             }
             catch (Exception e)
