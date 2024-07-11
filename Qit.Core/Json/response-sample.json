@@ -1,0 +1,10 @@
+[
+  {
+    "categoryId": 80,
+    "attributes": [ "attribute1", "attribute2", "attribute3" ]
+  },
+  {
+    "categoryId": 948,
+    "attributes": [ "attribute4", "attribute5", "attribute6" ]
+  }
+]
