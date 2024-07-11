@@ -7,6 +7,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="Json\request-sample.json" />
+    <Content Remove="Json\response-sample.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Json\request-sample.json" />
+    <None Include="Json\response-sample.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Mapster" Version="7.4.0" />
+    <PackageReference Include="Mapster.DependencyInjection" Version="1.0.1" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
 
