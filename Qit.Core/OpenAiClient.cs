@@ -10,10 +10,8 @@ namespace Qit.Core
 {
     public class OpenAiClient : IOpenAiClient
     {
-        public async Task<IEnumerable<CategoryAttributes>> SendAsync(string apiKey, IEnumerable<SubCategory> category)
+        public async Task<IEnumerable<CategoryAttributes>> SendAsync(string apiKey, int maxTokens, IEnumerable<SubCategory> category)
         {
-            int maxTokensToSpent = 1024;
-
             var api = new OpenAIAPI(apiKey);
 
             // request output format in JSON
@@ -21,7 +19,7 @@ namespace Qit.Core
             {
                 Model = Model.ChatGPTTurbo,
                 Temperature = 1.0,
-                MaxTokens = maxTokensToSpent,
+                MaxTokens = maxTokens,
                 // but not use response format as it does not work that easily
                 //ResponseFormat = ChatRequest.ResponseFormats.JsonObject,
                 Messages = [

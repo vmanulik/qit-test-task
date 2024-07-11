@@ -16,8 +16,10 @@ namespace Qit.Api
 
             builder.Services.AddMapster();
 
-            string apiKey = builder.Configuration.GetValue<string>("OpenAiSetting:ApiKey");
-            builder.Services.AddOpenAiServices(apiKey);
+            var config = new ApiConfig();
+            builder.Configuration.GetRequiredSection("OpenAiSetting").Bind(config);
+
+            builder.Services.AddOpenAiServices(config);
 
             var app = builder.Build();
 
